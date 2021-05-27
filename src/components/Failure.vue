@@ -8,7 +8,7 @@
 export default {
     methods:{
         newGame(){
-
+            this.$emit('isCorrectevent','app-game-cards');
         }
     }
 }
