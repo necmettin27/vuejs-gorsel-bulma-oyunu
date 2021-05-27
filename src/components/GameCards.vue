@@ -2,7 +2,7 @@
     <div class="game-area"> 
         <h1 class="title">Poğaça <span>Nerede</span><strong>?</strong></h1>
         <h4 class="description">Açık kartlardan birini seçtikten sonra, kapalı karta tıklayınız.</h4>
-        <div class="container">
+        <div class="container"> 
             <transition-group name="rotate-all" appear class="card-container">
                   <app-card 
                     :class="{'shadow' : selectedCard == card.id}"
@@ -12,7 +12,6 @@
                     :card="card"
                     ></app-card>
             </transition-group>
-          
 
         </div>
         <div class="container">
@@ -22,7 +21,6 @@
                  :is="activeCard"
                  :card = "answer"
                  >
-
                 </component>
             </transition>
         </div>
@@ -31,6 +29,7 @@
 <script>
 import Card from './Card'
 import DefaultCard from './DefaultCard'
+
 export default {
     components:{
         appCard : Card,
@@ -56,7 +55,21 @@ export default {
     },
     methods:{
         showCard(answer){
-            this.activeCard = answer.component;
+            if(this.selectedCard == null){
+                alert("İlk olarak bir kart seçiniz !!!.")
+            }else{
+                this.activeCard = answer.component;
+                setTimeout(()=>{
+                    if(answer.id == this.selectedCard){ 
+                        this.$emit("isCorrectevent","app-celebrate")
+                    }else{ 
+                        this.$emit("isCorrectevent","app-failure")
+                    }
+                },2000)
+                    
+                
+            }
+            
         }
     }
 }
