@@ -1,6 +1,5 @@
 <template>
-    <div class="game-area"> 
-         {{ answer }}
+    <div class="game-area">  
         <h1 class="title">Poğaça <span>Nerede</span><strong>?</strong></h1>
         <h4 class="description">Açık kartlardan birini seçtikten sonra, kapalı karta tıklayınız.</h4>
        

@@ -1,9 +1,10 @@
 <template>
 <transition name="slideContainer" mode="out-in">
-  <component
+  <component 
     @isCorrectevent="activeComponent = $event"
     :is="activeComponent"
   ></component>
+  
 </transition>
 
 </template>
